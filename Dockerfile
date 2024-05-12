@@ -34,6 +34,11 @@ CMD ["postgres"]
 # docker images
 # docker logs my-postgres
 
+
+# 永続化ボリューム作成
+# docker volume create postgres_data
+
+# ボリュームを指定して実行
 # docker run -d \
 #   -p 15432:15432 \
 #   --name my-postgres \
