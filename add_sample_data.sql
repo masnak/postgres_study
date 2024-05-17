@@ -1,9 +1,6 @@
 /*
 SQLサンプル集
 */
--- kakeiboテーブルを作成
-
-
 
 -- kakeiboデータベースを作成
 CREATE DATABASE kakeibo;
