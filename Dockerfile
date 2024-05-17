@@ -17,36 +17,3 @@ EXPOSE 15432
 # PostgreSQLを前景で実行
 CMD ["postgres"]
 
-
-# 実行方法
-# docker build -t my-postgres .
-# docker run -d -p 15432:15432 --name my-postgres my-postgres
-# docker exec -it my-postgres psql -U postgres
-
-
-# docker start my-postgres
-# docker restart my-postgres
-# docker stop my-postgres
-
-# docker rm my-postgres
-# docker rmi my-postgres
-# docker ps -a
-# docker images
-# docker logs my-postgres
-
-
-# 永続化ボリューム作成
-# docker volume create postgres_data
-
-# ボリュームを指定して実行
-# docker run -d \
-#   -p 15432:15432 \
-#   --name my-postgres \
-#   -e POSTGRES_DB=test-db \
-#   -e POSTGRES_USER=postgres \
-#   -e POSTGRES_PASSWORD=password \
-#   -v postgres_data:/var/lib/postgresql/data \
-#   my-postgres
-
-
-
