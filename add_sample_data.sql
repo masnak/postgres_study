@@ -2,6 +2,23 @@
 SQLサンプル集
 */
 
+-- kakeiboデータベースを作成
+CREATE DATABASE kakeibo;
+
+-- kakeiboデータベースを使用
+USE kakeibo;
+
+-- kakeiboテーブルを作成
+CREATE TABLE kakeibo (
+    date DATE,
+    account VARCHAR(20),
+    memo VARCHAR(100),
+    in_amount DECIMAL(10, 2),
+    out_amount DECIMAL(10, 2)
+);
+
+
+
 --　kakeiboテーブルにデータを追加
 
 INSERT INTO kakeibo (date, account, memo, in_amount, out_amount) VALUES
