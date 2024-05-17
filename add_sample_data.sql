@@ -6,7 +6,7 @@ SQLサンプル集
 CREATE DATABASE kakeibo;
 
 -- kakeiboデータベースを使用
-USE kakeibo;
+\connect kakeibo;
 
 -- kakeiboテーブルを作成
 CREATE TABLE kakeibo (
@@ -16,7 +16,6 @@ CREATE TABLE kakeibo (
     in_amount DECIMAL(10, 2),
     out_amount DECIMAL(10, 2)
 );
-
 
 
 --　kakeiboテーブルにデータを追加
