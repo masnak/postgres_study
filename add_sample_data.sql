@@ -6,7 +6,7 @@ SQLサンプル集
 CREATE DATABASE kakeibo;
 
 -- kakeiboデータベースを使用
-\connect kakeibo;
+--　\connect kakeibo;
 
 -- kakeiboテーブルを作成
 CREATE TABLE kakeibo (
@@ -35,3 +35,43 @@ INSERT INTO kakeibo (date, account, memo, in_amount, out_amount) VALUES
 --　Likeの使い方
 select * from kakeibo
 where memo like '%スーパー%';
+
+--　Betweenの使い方
+select * from kakeibo
+where date between '2024-02-01' and '2024-02-10';
+
+-- INの使い方
+select * from kakeibo
+where account in ('食費', '交通費');
+
+-- NOT INの使い方
+select * from kakeibo
+where account not in ('食費', '交通費');
+
+-- ANYの使い方
+select * from kakeibo
+where out_amount < any (select out_amount from kakeibo where account = '食費');
+
+/*
+このSQLクエリは、kakeiboテーブルから特定の条件を満たす行を選択します。
+
+具体的には、まずサブクエリ(select out_amount from kakeibo where account = '食費')
+が実行され、accountが食費である行のout_amountの値を全て取得します。
+
+次に、メインのクエリselect * from kakeibo where out_amount < any ( ... )が実行されます。
+ここでanyは、サブクエリが返すout_amountの値のいずれか一つでもout_amountより大きいものがあれば、
+その行を選択します。
+
+つまり、このクエリは「kakeiboテーブルのout_amountが、accountが食費である行の
+out_amountのいずれか一つよりも小さい全ての行を選択する」という操作を行います。
+*/
+
+SELECT * FROM kakeibo
+WHERE out_amount > ANY (VALUES (5000), (55000), (6000));
+
+SELECT * FROM kakeibo
+WHERE out_amount > ANY (ARRAY[1000, 2000, 3000]);
+
+SELECT * FROM kakeibo
+WHERE out_amount > ANY (ARRAY[1000, 2000, 3000]);
+
