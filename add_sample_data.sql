@@ -31,3 +31,7 @@ INSERT INTO kakeibo (date, account, memo, in_amount, out_amount) VALUES
 ('2024-02-16', '特別費', '家具購入', 0.00, 25000.00),
 ('2024-02-18', '食費', '外食', 0.00, 3500.00),
 ('2024-02-20', 'その他', '不明な出費', 0.00, 1500.00);
+
+--　Likeの使い方
+select * from kakeibo
+where memo like '%スーパー%';
