@@ -75,3 +75,7 @@ WHERE out_amount > ANY (ARRAY[1000, 2000, 3000]);
 SELECT * FROM kakeibo
 WHERE out_amount > ANY (ARRAY[1000, 2000, 3000]);
 
+UPDATE kakeibo
+SET out_cmount = 1300
+WHERE memo = '映画鑑賞';
+
