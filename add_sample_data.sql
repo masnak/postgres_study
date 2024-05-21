@@ -79,3 +79,6 @@ UPDATE kakeibo
 SET out_cmount = 1300
 WHERE memo = '映画鑑賞';
 
+SELECT DISTINCT account FROM kakeibo;
+
+
