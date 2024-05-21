@@ -81,4 +81,8 @@ WHERE memo = '映画鑑賞';
 
 SELECT DISTINCT account FROM kakeibo;
 
+SELECT * FROM kakeibo ORDER BY date DESC;
+
+SELECT * FROM kakeibo ORDER BY date ASC;
+
 
