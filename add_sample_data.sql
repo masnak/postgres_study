@@ -93,3 +93,9 @@ FETCH NEXT 5 ROWS ONLY;
 SELECT * FROM kakeibo
 ORDER BY date ASC
 LIMIT 5;
+
+
+SELECT date, account, memo, in_amount FROM kakeibo
+UNION
+SELECT date, account, memo, out_amount FROM kakeibo
+ORDER BY 2, 3, 1;
