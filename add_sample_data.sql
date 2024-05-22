@@ -99,3 +99,7 @@ SELECT date, account, memo, in_amount FROM kakeibo
 UNION
 SELECT date, account, memo, out_amount FROM kakeibo
 ORDER BY 2, 3, 1;
+
+
+SELECT account, SUM(in_amount) AS total_in_amount, SUM(out_amount) AS total_out_amount
+FROM kakeibo GROUP BY account;
