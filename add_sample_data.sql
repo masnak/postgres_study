@@ -101,15 +101,11 @@ SELECT date, account, memo, out_amount FROM kakeibo
 ORDER BY 2, 3, 1;
 
 
-
-
-
-
-# user カラムを追加
+-- user カラムを追加
 ALTER TABLE kakeibo
 ADD COLUMN user_id VARCHAR(20);
 
-# user カラムにデータを追加
+-- user カラムにデータを追加
 UPDATE kakeibo
 SET user_id = 'user1';
 
