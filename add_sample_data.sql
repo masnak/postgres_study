@@ -99,3 +99,34 @@ SELECT date, account, memo, in_amount FROM kakeibo
 UNION
 SELECT date, account, memo, out_amount FROM kakeibo
 ORDER BY 2, 3, 1;
+
+# user カラムを追加
+ALTER TABLE kakeibo
+ADD COLUMN user_id VARCHAR(20);
+
+# user カラムにデータを追加
+UPDATE kakeibo
+SET user_id = 'user1';
+
+
+--　user_idのカラムの位置を左端に移動したい
+-- 1. 新しいテーブルを作成する
+CREATE TABLE kakeibo_new (
+    user_id VARCHAR(255),
+    date DATE,
+    account VARCHAR(255),
+    memo TEXT,
+    in_amount NUMERIC,
+    out_amount NUMERIC
+);
+
+-- 2. 古いテーブルからデータを新しいテーブルにコピーする
+INSERT INTO kakeibo_new (user_id, date, account, memo, in_amount, out_amount)
+SELECT user_id, date, account, memo, in_amount, out_amount
+FROM kakeibo;
+
+-- 3. 古いテーブルを削除する
+DROP TABLE kakeibo;
+
+-- 4. 新しいテーブルの名前を元の名前に変更する
+ALTER TABLE kakeibo_new RENAME TO kakeibo;
